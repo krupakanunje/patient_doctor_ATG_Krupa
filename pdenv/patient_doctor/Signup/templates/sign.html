@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signin </title>
+    <link rel="stylesheet" href="{% static '/css/register.css' %}">
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">
+          Registration Form
+          
+        </div>
+        <form method="POST" action="/reg" style="margin-top:2px;" enctype="multipart/form-data">
+            {% csrf_token %}
+           <h4> {{msg}}</h4>
+        <div class="form">
+            <div class="inputfield">
+                <label>First Name</label>
+                {{ form.first_name }}
+
+             </div>  
+              <div class="inputfield">
+                <label>Last Name</label>
+                {{ form.last_name }}
+
+             </div> 
+             <div class="inputfield">
+              <label>Username</label>
+              {{ form.username }}
+
+           </div>  
+           
+             <div class="inputfield">
+                <label>Password</label>
+                {{ form.password }}
+
+             </div>  
+            <div class="inputfield">
+                <label>Confirm Password</label>
+                {{ form.confirm_password }}
+
+             </div> 
+              <div class="inputfield">
+                <label>Role</label>
+                <div class="custom_select">
+                    {{ form.role }}
+
+                </div>
+             </div> 
+              <div class="inputfield">
+                <label>Email Address</label>
+                {{ form.email }}
+
+             </div> 
+            <div class="inputfield">
+                <label>Address</label>
+                {{ form.address }}
+
+             </div> 
+             <div class="inputfield">
+              <label>City</label>
+              {{ form.city }}
+
+           </div> 
+          
+           <div class="inputfield">
+              <label>State</label>
+              {{ form.state }}
+
+           </div> 
+          
+            <div class="inputfield">
+                <label>PinCode</label>
+                {{ form.pincode }}
+
+             </div> 
+             <div class="inputfield">
+             <label for="pp">Profile Picture: </label>
+             {{ form.pic }}
+      </div> 
+            <div class="inputfield">
+                <button type="submit" class="btn btn-primary">Save</button>
+
+             
+            </div> 
+        </div>
+    </form>
+    </div>
+</body>
+</html>

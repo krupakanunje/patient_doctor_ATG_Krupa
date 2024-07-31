@@ -9,29 +9,6 @@ from .forms import SignupForm
 
 
 # Create your views here.
-def index1(request):
-    if request.method == "POST":
-       msg="" 
-       username=request.POST.get('username')
-       
-       password = request.POST.get('password') 
-       #user = authenticate(request,username=username, password= password)
-       user = authenticate(request,username=username, password= password)
-       if user is not None:
-               for users in user:
-                  print(users.role)     
-                  if users.role=="Patient":
-                        return render(request,"dashboard_pt.html",{'patient':users})
-                  else:
-                
-                      return render(request,"dashboard_dt.html",{'doctor':users})
-   
-       else:
-         # No backend authenticated the credentials
-           msg = "INVALID USERNAME OR PASSWORD"
-           #return redirect("/loginIN")
-           return  render(request,'index.html',{'msg':msg})
-    return  render(request,'index.html')
 
 def index(request):
     if request.method == "POST":
@@ -76,7 +53,7 @@ def dashboard_pt(request):
 
 def dashboard_dt(request): 
     return render(request,"dashboard_dt.html")    
-def register(request):
+"""def register(request):
     if request.method == "POST":
       msg="" 
       fname=request.POST.get('fname')
@@ -106,7 +83,7 @@ def register(request):
            #return redirect("/loginIN")
            return  render(request,'reg.html',{'msg':msg})
     return  render(request,'reg.html')
-    
+    """
 def reg(request):
     
     if request.method == 'POST':
