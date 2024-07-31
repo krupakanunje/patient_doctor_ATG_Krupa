@@ -1,0 +1,98 @@
+
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signin </title>
+    <link rel="stylesheet" href="{% static '/css/dash.css' %}">
+    <style>
+    img
+    {
+        width:200px;
+        height:95px;
+    }
+    .box {
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <ul>
+           <li><a href="#" class="active">Home</a></li>
+           <li><a href="/">LogIn</a></li>
+           <li><a href="reg">Register</a></li>
+          
+        </ul>
+     </div>
+     
+     <div class="information">
+        
+        <h2>Hello Doctor {{doctor.first_name}},</h2>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <form action="login" method="GET">
+                    {% csrf_token %}
+                   
+                <h1> Profile </h1>
+                
+                <fieldset>
+                  
+                  <legend><span class="number">*</span> Your Basic Info</legend>
+                  <label for="pp">Profile Picture: </label>
+                  <div class="box">
+                    <img src="{% static 'img/doctor.png' %}">
+        
+                  </div>
+        
+                  <label for="fname">First Name : </label>
+                  <input type="text" name="fname" id="fname" value="{{doctor.first_name}}">
+                  <label for="last">Last Name : </label>
+                  <input type="text" name="lname" id="last" value="{{doctor.last_name}}">
+                  
+                  <label for="rl">Role : </label>
+                  <input type="text" name="lname" id="rl" value="{{doctor.role}}">
+                  <label for="pp">Profile Picture: </label>
+                  <input type="text" name="pic" id="pp" value="{{doctor.pic}}">
+                  <label for="ed">Email Id : </label>
+                  <input type="email" name="eid" id="ed" value="{{doctor.email}}">
+                  
+          
+                  <label for="uname">Username : </label>
+                  <input type="text" name="username" id="uname" value="{{doctor.username}}">
+                  <label for="pass">Password : </label>
+                  <input type="text" name="password" id="pass" value="{{doctor.password}}">
+                  
+                  <label for="pass">Confirm Password : </label>
+                  <input type="text" name="conf" id="pass" value="{{doctor.confirm_password}}">
+                  
+                  <label for="ad">Address : </label>
+                  <input type="text" name="add" id="ad" value="{{doctor.address}}">
+                 
+                  <label for="ct">City : </label>
+                  <input type="text" name="city" id="ct" value="{{doctor.city}}">
+                  
+                  <label for="st">State : </label>
+                  <input type="text" name="State" id="st" value="{{doctor.state}}">
+                  <label for="pin">Pincode : </label>
+                  <input type="text" name="Pincode" id="pin" value="{{doctor.pincode}}">
+                  
+                  
+                 
+                  
+                </fieldset>
+                
+               </form>
+                </div>
+              </div>
+              
+    </div>
+</body>
+</html>
